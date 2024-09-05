@@ -1,0 +1,120 @@
+# Python-specific
+*.py[cod]
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+virtualenv/
+
+# Django-specific
+*.log
+*.pot
+*.pyc
+*~
+db.sqlite3
+*.sqlite3
+media
+staticfiles
+
+# REST framework-related
+drf_yasg/
+*.swagger
+*.yaml
+*.yml
+*.json
+
+# Django REST Framework cache
+*.cache
+
+# Generated migrations
+migrations/
+
+# Postman collections
+*.postman_collection.json
+
+# Local DRF testing database
+db_test.sqlite3
+
+# Django environment settings
+.env
+.env.local
+.env.production
+.env.development
+
+# Local Django settings
+settings_local.py
+
+# pyenv
+.python-version
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# MySQL
+*.pid
+*.seed
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Celery
+celerybeat-schedule
+*.celerybeat.db
+
+# Redis
+*.rdb
+dump.rdb
+appendonly.aof
+
+# Other
+*.pdf
+*.doc
+*.docx
+*.rtf
+*.tmp
+*.temp
+*.bak
+*.orig
+*.swp
+*.swo
