@@ -3,6 +3,7 @@ import  requests
 
 URL = "http://127.0.0.1:8000/stucreate/"
 
+# For Posting some data
 data = {
     'name': 'Mission',
     'roll': 101,
