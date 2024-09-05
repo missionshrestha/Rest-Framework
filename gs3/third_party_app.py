@@ -33,4 +33,35 @@ def get_data(id=None):
     data=r.json()
     print(data)
 
-get_data(1)
+# Call the get_data() function to fetch all data
+get_data()
+
+def post_data():
+    """
+    Sends a POST request to the specified URL with a JSON payload.
+
+    Returns:
+        dict: The response data in JSON format.
+
+    Example:
+        >>> post_data()
+        {'id': 2, 'name': 'Devi', 'roll': 105, 'city': 'Mumbai'}
+
+    This function constructs a JSON payload with the name, roll, and city values. It then sends a POST request to the specified URL with the constructed payload. The response is then parsed as JSON and returned as a dictionary.
+
+    The function can be used as follows:
+    post_data()
+    """
+    data = {
+        'name': 'Devi',
+        'roll': 106,
+        'city': 'Mumbai'
+    }
+    
+    json_data = json.dumps(data)
+    r = requests.post(url=URL, data=json_data)
+    data = r.json()
+    print(data)
+
+# Call the post_data() function to send a POST request
+# post_data()
