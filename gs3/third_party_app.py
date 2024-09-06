@@ -120,4 +120,40 @@ def update_data():
     data = r.json()
     print(data)
 
-update_data()
+# update_data()
+
+
+
+
+def delete_data():
+    """
+    Deletes data from the specified URL using the DELETE method.
+
+    Example:
+        >>> delete_data()
+
+    This function demonstrates how to delete data from the specified URL using the DELETE method. It takes an ID parameter and constructs a JSON payload with the ID value. It then sends a DELETE request to the specified URL with the constructed payload. The response is then parsed as JSON and printed.
+
+    The function can be used as follows:
+    delete_data()
+    """
+
+    # Specify the ID of the data to delete
+    data = {
+        'id': 2,
+    }
+
+    # Convert the data dictionary to JSON format
+    json_data = json.dumps(data)
+
+    # Send a DELETE request to the specified URL with the JSON payload
+    r = requests.delete(url=URL, data=json_data)
+
+    # Parse the response as JSON
+    data = r.json()
+
+    # Print the response data
+    print(data)
+
+# Call the delete_data() function to delete data
+delete_data()

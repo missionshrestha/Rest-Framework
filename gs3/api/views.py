@@ -2,7 +2,7 @@ from django.shortcuts import render
 import io
 from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import Student
 from .serializer import StudentSerializer
 from django.views.decorators.csrf import csrf_exempt
@@ -119,3 +119,36 @@ def student_api(request):
             # If the serializer data is not valid, return the errors
             json_data = JSONRenderer().render(serializer.errors)
             return HttpResponse(json_data, content_type='application/json')
+
+
+    elif request.method == 'DELETE':
+        # Handling DELETE request
+
+        # Retrieve the JSON data from the request body
+        json_data = request.body
+
+        # Create a stream to read the JSON data
+        stream = io.BytesIO(json_data)
+
+        # Parse the JSON data into Python data
+        python_data = JSONParser().parse(stream)
+
+        # Retrieve the 'id' parameter from the Python data
+        id = python_data.get('id')
+
+        try:
+            # Retrieve the student with the provided id
+            stud = Student.objects.get(id=id)
+            stud.delete()
+
+            res = {'msg': 'Data Deleted'}
+            # json_data = JSONRenderer().render(res)
+            # return HttpResponse(json_data, content_type='application/json')
+            return JsonResponse(res, safe = False)
+        except Student.DoesNotExist:
+            # If the student does not exist, return an error message
+            res = {'error': 'Student does not exist'}
+            # json_data = JSONRenderer().render(res)
+            # return HttpResponse(json_data, content_type='application/json')
+            return JsonResponse(res, safe = False ,status=404)
+        
