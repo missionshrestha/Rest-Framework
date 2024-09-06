@@ -56,7 +56,7 @@ def post_data():
     post_data()
     """
     data = {
-        'name': 'Devi',
+        'name': 'Tej',
         'roll': 106,
         'city': 'Mumbai'
     }
@@ -106,7 +106,7 @@ def update_data():
 
     # Partial update
     data = {
-        'id': 5,
+        'id': 13,
         'name': 'Niru',
     }
     
@@ -143,7 +143,7 @@ def delete_data():
 
     # Specify the ID of the data to delete
     data = {
-        'id': 2,
+        'id': 13,
     }
 
     # Convert the data dictionary to JSON format
@@ -165,7 +165,7 @@ def delete_data():
 
 # function caller
 
-get_data()
+# get_data()
 # post_data()
 # update_data()
-# delete_data()
+delete_data()
