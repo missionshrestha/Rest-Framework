@@ -34,7 +34,7 @@ def get_data(id=None):
     print(data)
 
 # Call the get_data() function to fetch all data
-get_data()
+# get_data()
 
 def post_data():
     """
@@ -65,3 +65,59 @@ def post_data():
 
 # Call the post_data() function to send a POST request
 # post_data()
+
+
+def update_data():
+    """
+    Updates data on the specified URL using the PUT method.
+
+    Example:
+        >>> update_data()
+
+    This function demonstrates how to update data on the specified URL using the PUT method. It can be used to perform both partial and complete updates.
+
+    To perform a partial update, provide the ID and the fields to update in the `data` dictionary. For example:
+    ```
+    data = {
+        'id': 5,
+        'name': 'Niru',
+    }
+    ```
+    This will update the 'name' field of the data with ID 5.
+
+    To perform a complete update, provide all the fields in the `data` dictionary. For example:
+    ```
+    data = {
+        'id': 6,
+        'name': 'Siru',
+        'roll': 106,
+        'city': 'USA'
+    }
+    ```
+    This will update all the fields of the data with ID 6.
+
+    After constructing the JSON payload from the `data` dictionary, a PUT request is sent to the specified URL with the payload. The response is then parsed as JSON and printed.
+
+    Note: Uncomment the desired `data` dictionary to perform either a partial or complete update.
+    """
+
+    # Partial update
+    data = {
+        'id': 5,
+        'name': 'Niru',
+    }
+    
+    # # Complete update
+    # data = {
+    #     'id': 6,
+    #     'name': 'Siru',
+    #     'roll': 106,
+    #     'city': 'USA'
+    # }
+
+    json_data = json.dumps(data)
+    r = requests.put(url=URL, data=json_data)
+    data = r.json()
+    print(data)
+
+update_data()

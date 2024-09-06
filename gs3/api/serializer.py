@@ -18,11 +18,32 @@ class StudentSerializer(serializers.Serializer):
     city = serializers.CharField(max_length=100)
 
     def create(self, validated_data):
+        """
+        Creates a new student instance with the validated data.
+
+        Args:
+            validated_data (dict): The validated data containing the field values.
+
+        Returns:
+            Student: The newly created student instance.
+        """
         return Student.objects.create(**validated_data)
 
-    # def update(self, instance, validated_data):
-    #     instance.name = validated_data.get('name', instance.name)
-    #     instance.roll = validated_data.get('roll', instance.roll)
-    #     instance.city = validated_data.get('city', instance.city)
-    #     instance.save()
-    #     return instance
+    def update(self, instance, validated_data):
+        """
+        Updates the fields of the given instance with the validated data.
+
+        Args:
+            instance: The instance to be updated.
+            validated_data: The validated data containing the updated field values.
+
+        Returns:
+            The updated instance.
+        """
+        print(instance)
+        instance.name = validated_data.get('name', instance.name)
+        print(instance)         
+        instance.roll = validated_data.get('roll', instance.roll)
+        instance.city = validated_data.get('city', instance.city)
+        instance.save()
+        return instance
